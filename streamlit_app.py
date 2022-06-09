@@ -2,7 +2,7 @@ import streamlit as st
 from tensorflow import keras
 
 
-# model = keras.models.load_model(r'C:\Users\sofia\Downloads\modele_nounou')
+# model = keras.models.load_model('\modele_nounou')
 
 
 def load_image():
