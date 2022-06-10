@@ -1,6 +1,7 @@
 import streamlit as st
 from tensorflow import keras
 from PIL import Image
+import io
 
 model = keras.models.load_model('modele_nounou')
 
