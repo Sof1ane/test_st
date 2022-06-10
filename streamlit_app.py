@@ -14,7 +14,7 @@ def load_image():
     st.button('Predict')
     
     if st.button:
-        prediction = model.predict(uploaded_file)
+        prediction = model.predict(image_data)
         st.write(prediction)
 
     
