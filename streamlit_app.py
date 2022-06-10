@@ -29,7 +29,7 @@ def predict(model, image):
     img_array = tf.expand_dims(img_array, 0)
     pdc = model.predict(img_array)
     st.write(pdc[0]*100 , "\n", classes)
-    st.write("Prediction: ", classes[np.argmax(pdc)], f"pdc[0][np.argmax(pdc)]*100%")
+    st.write("Prediction: ", classes[np.argmax(pdc)], pdc[0][np.argmax(pdc)])
         
 
     
