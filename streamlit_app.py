@@ -17,13 +17,14 @@ def load_image():
         return io.BytesIO(image_data)
     else:
         return None
-        
+
 def predict(model, image):
     img = keras.preprocessing.image.load_img(image, target_size=(256, 256))
     img_array = keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
     pdc = model.predict(img_array)
-    st.write(pdc)
+    st.write(predictions[0]100, "\n", classes)
+    st.write("Prediction: ", classes[np.argmax(predictions)], f"{predictions[0][np.argmax(predictions)]100}%")
         
 
     
