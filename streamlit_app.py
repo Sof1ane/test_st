@@ -23,8 +23,8 @@ def predict(model, image):
     img_array = keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
     pdc = model.predict(img_array)
-    st.write(predictions[0]100, "\n", classes)
-    st.write("Prediction: ", classes[np.argmax(predictions)], f"{predictions[0][np.argmax(predictions)]100}%")
+    # st.write(pdc[0]100, "\n", classes)
+    st.write("Prediction: ", classes[np.argmax(pdc)], pdc[0][np.argmax(pdc)]100)
         
 
     
