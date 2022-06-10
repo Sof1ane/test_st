@@ -1,4 +1,5 @@
 import streamlit as st
+import tensorflow as tf
 from tensorflow import keras
 from PIL import Image
 import io
@@ -21,8 +22,8 @@ def load_image():
     
     
 def predict(model, image):
-    img = tf.keras.preprocessing.image.load_img(image, target_size=(256, 256))
-    img_array = tf.keras.preprocessing.image.img_to_array(img)
+    img = keras.preprocessing.image.load_img(image, target_size=(256, 256))
+    img_array = keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
     pdc = model.predict(img_array)
     st.write(pdc)
