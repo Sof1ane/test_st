@@ -17,13 +17,13 @@ def load_image():
     st.button('Predict')
     
     if st.button:
-        prediction = model.predict(image_data)
+        prediction = model.predict(image)
         st.write(prediction)
 
     
 def main():
     st.title('Image upload demo')
-    load_image()
+    image = load_image()
 
 
 if __name__ == '__main__':
