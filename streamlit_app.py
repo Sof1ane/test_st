@@ -4,6 +4,11 @@ from tensorflow import keras
 from PIL import Image
 import io
 
+
+import numpy as np
+
+classes = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
+
 def load_model():
     model = keras.models.load_model('modele_nounou')
     return model
