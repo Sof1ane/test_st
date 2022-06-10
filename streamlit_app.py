@@ -20,8 +20,11 @@ def load_image():
     st.button('Predict')
     
     
-def predict(model, img):
-    pdc = model.predict(img)
+def predict(model, image):
+    img = tf.keras.preprocessing.image.load_img(image, target_size=(256, 256))
+    img_array = tf.keras.preprocessing.image.img_to_array(img)
+    img_array = tf.expand_dims(img_array, 0)
+    pdc = model.predict(img_array)
     st.write(pdc)
         
 
