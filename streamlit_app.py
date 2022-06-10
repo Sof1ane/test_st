@@ -33,7 +33,7 @@ def main():
     result = st.button('Run on image')
     if result:
         st.write('Calculating results...')
-        predict(image)
+        predict(model, image)
 
 
 if __name__ == '__main__':
