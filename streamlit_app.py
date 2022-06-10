@@ -5,7 +5,6 @@ import io
 
 def load_model():
     model = keras.models.load_model('modele_nounou')
-    model.eval()
     return model
 
 
