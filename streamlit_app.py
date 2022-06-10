@@ -14,15 +14,15 @@ def load_image():
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
-        return Image.open(io.BytesIO(image_data))
+        return keras.preprocessing.image.load_img(image_data, target_size=(256, 256))
     else:
         return None
         
     st.button('Predict')
     
     
-def predict(model, image):
-    img_array = keras.preprocessing.image.img_to_array(image)
+def predict(model, img):
+    img_array = keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
     pdc = model.predict(img_array)
     st.write(pdc)
