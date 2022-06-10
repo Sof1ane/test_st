@@ -25,7 +25,7 @@ def predict(img):
     
 def main():
     st.title('Image upload demo')
-    categories = load_labels()
+
     image = load_image()
     result = st.button('Run on image')
     if result:
