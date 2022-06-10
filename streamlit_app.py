@@ -3,7 +3,10 @@ from tensorflow import keras
 from PIL import Image
 import io
 
-model = keras.models.load_model('modele_nounou')
+def load_model():
+    model = keras.models.load_model('modele_nounou')
+    model.eval()
+    return model
 
 
 def load_image():
@@ -18,7 +21,7 @@ def load_image():
     st.button('Predict')
     
     
-def predict(img):
+def predict(model, img):
     pdc = model.predict(img)
     st.write(pdc)
         
@@ -26,7 +29,7 @@ def predict(img):
     
 def main():
     st.title('Image upload demo')
-
+    model = load_model()
     image = load_image()
     result = st.button('Run on image')
     if result:
