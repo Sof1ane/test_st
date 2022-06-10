@@ -16,14 +16,21 @@ def load_image():
         
     st.button('Predict')
     
-    if st.button:
-        prediction = model.predict(image)
-        st.write(prediction)
+    
+def predict(img):
+    pdc = model.predict(img)
+    st.write(pdc)
+        
 
     
 def main():
     st.title('Image upload demo')
+    categories = load_labels()
     image = load_image()
+    result = st.button('Run on image')
+    if result:
+        st.write('Calculating results...')
+        predict(image)
 
 
 if __name__ == '__main__':
