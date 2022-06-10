@@ -22,8 +22,7 @@ def load_image():
     
     
 def predict(model, image):
-    img = keras.preprocessing.image.load_img(image, target_size=(256, 256))
-    img_array = keras.preprocessing.image.img_to_array(img)
+    img_array = keras.preprocessing.image.img_to_array(image)
     img_array = tf.expand_dims(img_array, 0)
     pdc = model.predict(img_array)
     st.write(pdc)
