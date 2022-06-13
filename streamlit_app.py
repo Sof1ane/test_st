@@ -33,11 +33,12 @@ def predict(model, image):
     pdc = model.predict(img_array)
     # st.write(pdc[0]*100 , "\n", classes)
     if classes[np.argmax(pdc)] in recyclable_lille:
-        st.write("recyclable")
+        st.write("recyclable", pdc[0][np.argmax(pdc)])
 
     else:
-        st.write("non recyclable")
-    st.write("Prediction: ", classes[np.argmax(pdc)], pdc[0][np.argmax(pdc)])
+        st.write("non recyclable", pdc[0][np.argmax(pdc)])
+
+    # st.write("Prediction: ", classes[np.argmax(pdc)], pdc[0][np.argmax(pdc)])
         
 
     
@@ -47,7 +48,7 @@ def main():
     image = load_image()
     result = st.button('Run on image')
     if result:
-        st.write('Calculating results...')
+        # st.write('Calculating results...')
         predict(model, image)
 
 
