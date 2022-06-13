@@ -32,7 +32,7 @@ def predict(model, image):
     img_array = tf.expand_dims(img_array, 0)
     pdc = model.predict(img_array)
     # st.write(pdc[0]*100 , "\n", classes)
-    if pdc[0] in recyclable_lille:
+    if classes[np.argmax(pdc)] in recyclable_lille:
         st.write("recyclable")
 
     else:
