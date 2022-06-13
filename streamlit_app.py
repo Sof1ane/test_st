@@ -9,6 +9,8 @@ import numpy as np
 
 classes = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 
+recyclable_lille = ["plastic","glass","metal","paper"]
+
 def load_model():
     model = keras.models.load_model('modele_nounou')
     return model
@@ -23,12 +25,18 @@ def load_image():
     else:
         return None
 
+
 def predict(model, image):
     img = keras.preprocessing.image.load_img(image, target_size=(256, 256))
     img_array = keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
     pdc = model.predict(img_array)
     # st.write(pdc[0]*100 , "\n", classes)
+    if pdc[0] in recyclable_lille:
+        st.write("recyclable")
+
+    else:
+        st.write("non recyclable")
     st.write("Prediction: ", classes[np.argmax(pdc)], pdc[0][np.argmax(pdc)])
         
 
