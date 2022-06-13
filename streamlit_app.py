@@ -7,9 +7,9 @@ import io
 
 import numpy as np
 
-classes = [ 'glass', 'metal', 'paper', 'plastic', 'trash']
+classes = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 
-recyclable_lille = ["plastic","glass","metal","paper",'cardboard']
+recyclable_lille = ["plastic","glass","metal","paper"]
 
 def load_model():
     model = keras.models.load_model('modele_nounou')
@@ -56,5 +56,4 @@ if __name__ == '__main__':
     main()
     
     
-
 
