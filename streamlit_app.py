@@ -7,9 +7,9 @@ import io
 
 import numpy as np
 
-classes = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
+classes = [ 'glass', 'metal', 'paper', 'plastic', 'trash']
 
-recyclable_lille = ["plastic","glass","metal","paper"]
+recyclable_lille = ["plastic","glass","metal","paper",'cardboard']
 
 def load_model():
     model = keras.models.load_model('modele_nounou')
