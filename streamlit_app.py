@@ -46,10 +46,10 @@ def predict(model, image,option):
     # st.write(pdc[0]*100 , "\n", classes)
     if option == 'Lille':
         if classes[np.argmax(pdc)] in recyclable_lille:
-            st.write("recyclable", classes[np.argmax(pdc)]])
+            st.write("recyclable", classes[np.argmax(pdc)])
 
         else:
-            st.write("non recyclable", classes[np.argmax(pdc)]])
+            st.write("non recyclable", classes[np.argmax(pdc)])
 
     if option =="Villeneuve d'Ascq":
         if classes[np.argmax(pdc)] in villeneuve_papier:
