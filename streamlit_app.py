@@ -9,7 +9,14 @@ import numpy as np
 
 classes = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 
-recyclable_lille = ["plastic","glass","metal","paper"]
+recyclable_lille = ["plastic","glass","metal","paper","cardboard"]
+
+villeneuve_papier = ['papier','cardboard']
+
+villeneuve_plastique = ['plastic','glass','metal']
+
+# villeneuve_organique = ['organic']
+
 
 def load_model():
     model = keras.models.load_model('modele_nounou')
