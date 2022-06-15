@@ -27,7 +27,8 @@ def choice():
         'Dans quelle ville résidez vous ?',
         ('Lille', "Villeneuve d'Ascq"))
 
-    st.write('You selected:', option)
+    st.write('You selected:', option)$
+    return option
 
 def load_image():
     uploaded_file = st.file_uploader(label='Pick an image to test')
@@ -72,12 +73,12 @@ def predict(model, image,option):
 def main():
     st.title('Image upload demo')
     model = load_model()
-    choice()
+    option_1 = choice()
     image = load_image()
     result = st.button('Run on image')
     if result:
         # st.write('Calculating results...')
-        predict(model, image)
+        predict(model, image,option_1)
 
 
 if __name__ == '__main__':
