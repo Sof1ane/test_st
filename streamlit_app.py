@@ -22,11 +22,12 @@ def load_model():
     model = keras.models.load_model('modele_nounou')
     return model
 
-option = st.selectbox(
-     'Dans quelle ville résidez vous ?',
-     ('Lille', "Villeneuve d'Ascq"))
+def choice():
+    option = st.selectbox(
+        'Dans quelle ville résidez vous ?',
+        ('Lille', "Villeneuve d'Ascq"))
 
-st.write('You selected:', option)
+    st.write('You selected:', option)
 
 def load_image():
     uploaded_file = st.file_uploader(label='Pick an image to test')
@@ -71,6 +72,7 @@ def predict(model, image,option):
 def main():
     st.title('Image upload demo')
     model = load_model()
+    choice()
     image = load_image()
     result = st.button('Run on image')
     if result:
