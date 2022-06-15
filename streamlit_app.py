@@ -33,7 +33,7 @@ def choice():
         st.image(image_lille)
 
     if option== "Villeneuve d'Ascq":
-        image_villeneuve = Image.open('villeneuve_d_ascq.jpg')
+        image_villeneuve = Image.open('villeneuve_d_ascq.png')
         st.image(image_villeneuve)
     return option
 
