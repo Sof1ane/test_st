@@ -27,7 +27,7 @@ def choice():
         'Dans quelle ville résidez vous ?',
         ('Lille', "Villeneuve d'Ascq"))
 
-    st.write('You selected:', option)$
+    st.write('You selected:', option)
     return option
 
 def load_image():
