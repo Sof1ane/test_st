@@ -28,6 +28,13 @@ def choice():
         ('Lille', "Villeneuve d'Ascq"))
 
     st.write('You selected:', option)
+    if option== 'Lille':
+        image_lille = Image.open('lille.jpg')
+        st.image(image_lille)
+
+    if option== "Villeneuve d'Ascq":
+        image_villeneuve = Image.open('villeneuve_d_ascq.jpg')
+        st.image(image_villeneuve)
     return option
 
 def load_image():
@@ -48,23 +55,27 @@ def predict(model, image,option):
     # st.write(pdc[0]*100 , "\n", classes)
     if option == 'Lille':
         if classes[np.argmax(pdc)] in recyclable_lille:
-            st.write("recyclable", classes[np.argmax(pdc)])
+            st.write("recyclable")
+            st.write(classes[np.argmax(pdc)])
 
         else:
-            st.write("non recyclable", classes[np.argmax(pdc)])
+            st.write("non recyclable")
+            st.write(classes[np.argmax(pdc)])
 
     if option =="Villeneuve d'Ascq":
         if classes[np.argmax(pdc)] in villeneuve_papier:
-            st.write("Compartiment papier", classes[np.argmax(pdc)])
+            st.write("Compartiment papier")
+            st.write(classes[np.argmax(pdc)])
 
         elif classes[np.argmax(pdc)] in villeneuve_plastique:
-            st.write("Compartiment plastique / conserve / verre", classes[np.argmax(pdc)])
-
+            st.write("Compartiment plastique / conserve / verre")
+            st.write(classes[np.argmax(pdc)])
         elif classes[np.argmax(pdc)] in villeneuve_organique:
-            st.write("Compartiment déchets organiques", classes[np.argmax(pdc)])
-
+            st.write("Compartiment déchets organiques")
+            st.write(classes[np.argmax(pdc)])
         else:
-            st.write("Compartiment non recyclable", classes[np.argmax(pdc)])
+            st.write("Compartiment non recyclable")
+            st.write(classes[np.argmax(pdc)])
 
     # st.write("Prediction: ", classes[np.argmax(pdc)], pdc[0][np.argmax(pdc)])
         
