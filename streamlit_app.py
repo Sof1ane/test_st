@@ -97,11 +97,13 @@ def main():
     st.title('Image upload demo')
     model = load_model()
     option_1 = choice()
-    mode = mode()
-    if mode == "Prendre une photo":
+    
+    photo_mode = mode()
+
+    if photo_mode == "Prendre une photo":
         image = take_image()
 
-    elif mode == "Utiliser une photo":
+    elif photo_mode == "Utiliser une photo":
         image = load_image()
     result = st.button('Run on image')
     if result:
