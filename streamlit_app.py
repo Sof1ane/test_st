@@ -3,8 +3,6 @@ import tensorflow as tf
 from tensorflow import keras
 from PIL import Image
 import io
-
-
 import numpy as np
 
 classes = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
@@ -37,6 +35,20 @@ def choice():
         st.image(image_villeneuve)
     return option
 
+def mode():
+    mode= st.radio("Comment voulez vous utiliser l'application ?",("Prendre une photo","Utiliser une photo"))
+    return mode 
+
+
+def take_image():
+    picture = st.camera_input("Take a picture")
+    if picture:
+        image_data = picture.getvalue()
+        st.image(picture)
+        return io.BytesIO(picture)
+    else:
+        return None
+        
 def load_image():
     uploaded_file = st.file_uploader(label='Pick an image to test')
     if uploaded_file is not None:
@@ -85,7 +97,12 @@ def main():
     st.title('Image upload demo')
     model = load_model()
     option_1 = choice()
-    image = load_image()
+    mode = mode()
+    if mode == "Prendre une photo":
+        image = take_image()
+
+    elif mode == "Utiliser une photo":
+        image = load_image()
     result = st.button('Run on image')
     if result:
         # st.write('Calculating results...')
