@@ -44,8 +44,8 @@ def take_image():
     picture = st.camera_input("Take a picture")
     if picture:
         image_data = picture.getvalue()
-        st.image(picture)
-        return io.BytesIO(picture)
+        st.image(image_data)
+        return io.BytesIO(image_data)
     else:
         return None
         
