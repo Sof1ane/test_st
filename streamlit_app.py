@@ -43,6 +43,7 @@ def mode():
 def take_image():
     picture = st.camera_input("Take a picture")
     if picture:
+        picture = Image.open(picture)
         picture = picture.resize((500, 500))
         image_data = picture.getvalue()
         
@@ -54,6 +55,7 @@ def take_image():
 def load_image():
     uploaded_file = st.file_uploader(label='Pick an image to test')
     if uploaded_file:
+        uploaded_file = Image.open(uploaded_file)
         uploaded_file = uploaded_file.resize((500,500))
         image_data = uploaded_file.getvalue()
         st.image(image_data)
